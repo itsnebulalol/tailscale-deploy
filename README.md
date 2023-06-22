@@ -24,6 +24,13 @@ Ansible playbook to deploy Tailscale with SSH and Exit Node enabled on 1 or more
 5. Get a Tailscale auth key from [here](https://login.tailscale.com/admin/settings/keys)
 6. Run the playbook with `TAILSCALE_KEY="key goes here" ansible-playbook -i hosts main.yml`
 
+Lastly, enable Exit Node in the route settings in the Tailscale dashboard for the machine(s):
+
+<img width="437" alt="image" src="https://github.com/itsnebulalol/tailscale-deploy/assets/18669106/d79e875d-c454-4e79-90b1-4709ee0be0c5">
+
+For more information, read [here](https://tailscale.com/kb/1103/exit-nodes/#step-2-allow-the-exit-node-from-the-admin-console).
+
+
 # Credits
 
 - [Matrix Docker Ansible Deploy](https://github.com/spantaleev/matrix-docker-ansible-deploy) for `hosts` file and other references

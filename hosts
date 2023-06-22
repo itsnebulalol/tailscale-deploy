@@ -1,0 +1,15 @@
+# To connect using a non-root user (and elevate to root with sudo later),
+# replace `ansible_ssh_user=root` with something like this: `ansible_ssh_user=username become=true become_user=root`
+#
+# If you're running this Ansible playbook on the same server as the one you're installing to,
+# consider adding an additional `ansible_connection=local` argument to the host line below.
+#
+# Ansible may fail to discover which Python interpreter to use on the host for some distros (like Ubuntu 20.04).
+# You may sometimes need to explicitly add the argument `ansible_python_interpreter=/usr/bin/python3`
+# to the host line below.
+
+[servers]
+server1     ansible_host=192.168.0.1
+#server2     ansible_host=192.168.0.2
+#server3     ansible_host=192.168.0.3
+#server4     ansible_host=192.168.0.4

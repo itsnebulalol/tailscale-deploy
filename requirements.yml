@@ -1,0 +1,8 @@
+roles:
+  - name: artis3n.tailscale
+    src: https://github.com/artis3n/ansible-role-tailscale
+    version: v4.2.2
+
+collections:
+  - community.general
+  - ansible.posix

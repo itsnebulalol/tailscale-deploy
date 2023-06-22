@@ -1,0 +1,23 @@
+---
+- name: "Set up a Tailscale server"
+  hosts: servers
+  become: true
+  vars:
+    sysctl_config:
+      net.ipv4.ip_forward: 1
+      net.ipv6.conf.all.forwarding: 1
+
+  tasks:
+    - name: Enable IP forwarding
+      ansible.posix.sysctl:
+        name: '{{ item.key }}'
+        value: '{{ item.value }}'
+        sysctl_set: true
+      with_dict: '{{ sysctl_config }}'
+
+    - name: Install Tailscale
+      include_role:
+        name: artis3n.tailscale
+      vars:
+        tailscale_authkey: "{{ lookup('env', 'TAILSCALE_KEY') }}"
+        tailscale_args: "--ssh --advertise-exit-node"
